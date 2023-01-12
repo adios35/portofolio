@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap");
+.greet {
+  position: relative;
+}
+.greet::before {
+  content: "<h1>";
+  left: -20px;
+  font-size: 0.5em;
+  top: -50px;
+  font-family: "Dancing Script", cursive;
+  color: #ccc;
+  height: 10px;
+  height: 10px;
+  position: absolute;
+}
+.greet::after {
+  content: "</h1>";
+  right: 80px;
+  bottom: 70px;
+  font-size: 0.5em;
+  font-family: "Dancing Script", cursive;
+  color: #ccc;
+  height: 10px;
+  height: 10px;
+  position: absolute;
+}
+.social {
+  @apply relative bg-gradient-to-r from-violet-300 to-blue-500 bg-clip-text py-3 text-base;
+  font-family: Montserrat, sans-serif;
+}
+.social::after {
+  @apply top-2/4 -translate-y-2/4  rounded-full bg-gradient-to-r from-violet-300 to-blue-500 lg:w-[11vw] xl:w-[14vw];
+  content: "";
+  right: 0;
+  z-index: 9;
+  position: absolute;
+  height: 2px;
+}
+.social ul li {
+  @apply duration-300 hover:scale-125;
+}
+.title::after {
+  @apply bg-blue-500;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: " ";
+  height: 6px;
+  width: 6%;
+}

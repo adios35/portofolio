@@ -1,0 +1,18 @@
+ul li a {
+  @apply grid h-full w-full place-items-center text-3xl;
+}
+.menu li {
+  @apply grid h-10 place-items-center bg-gradient-to-r from-violet-300 to-blue-500 bg-clip-text text-base;
+  font-family: "Dancing Script", cursive;
+}
+ul li span {
+  @apply text-lg;
+}
+ul li a.active {
+  @apply text-blue-500;
+}
+
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+}
