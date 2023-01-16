@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import computer from "../../../assets/svgs/computer(1).json";
 import { FaReact } from "react-icons/fa";
 import { DiCss3, DiHtml5 } from "react-icons/di";
@@ -12,19 +12,36 @@ import {
   SiMysql,
   SiDjango,
   SiMongodb,
+  SiNodedotjs,
 } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
 import { BsFacebook, BsTwitter, BsLinkedin, BsInstagram } from "react-icons/bs";
-import { MotionProps, motion } from "framer-motion";
+import { MotionProps, motion, useInView } from "framer-motion";
 import Lottie from "react-lottie-player";
 
 import "./style.css";
 import coding from "../../../assets/svgs/coding.json";
 const Home = () => {
+  const [isInView, setisInView] = React.useState(false);
+  const [isInView2, setisInView2] = React.useState(false);
+  const section2Ref = useRef(null);
+  const section2Ref2 = useRef(null);
+  const inView = useInView(section2Ref);
+  const inView2 = useInView(section2Ref2);
+
+  React.useEffect(() => {
+    inView && setisInView(true);
+    inView2 && setisInView2(true);
+  }, [inView, inView2]);
+
   const currentStudyIcons = [
     {
       title: "nextJs",
       icon: <SiNextdotjs />,
+    },
+    {
+      title: "nodeJs",
+      icon: <SiNodedotjs />,
     },
     {
       title: "python",
@@ -44,28 +61,28 @@ const Home = () => {
     },
   ];
 
-  const codeVariants: MotionProps = {
-    initial: {
-      opacity: 0,
-      rotate: 360,
-    },
-    animate: {
-      opacity: 1,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        duration: 1,
-      },
-    },
-    whileHover: {
-      scale: 1.2,
-      transition: {
-        type: "spring",
-        duration: 0.3,
-        stiffness: 5,
-      },
-    },
-  };
+  // const codeVariants: MotionProps = {
+  //   initial: {
+  //     opacity: 0,
+  //     rotate: 360,
+  //   },
+  //   animate: {
+  //     opacity: 1,
+  //     rotate: 0,
+  //     transition: {
+  //       type: "spring",
+  //       duration: 1,
+  //     },
+  //   },
+  //   whileHover: {
+  //     scale: 1.2,
+  //     transition: {
+  //       type: "spring",
+  //       duration: 0.3,
+  //       stiffness: 5,
+  //     },
+  //   },
+  // };
   const codingIcons = [
     {
       title: "javascript",
@@ -101,22 +118,22 @@ const Home = () => {
     },
   ];
   return (
-    <motion.div>
-      <section className=" flexoverflow-hidden flex">
+    <motion.div className="space-y-10">
+      <section className=" flexoverflow-hidden flex flex-col-reverse md:flex-row ">
         <motion.div
           initial={{ x: "-100vh", opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           // transition={{ duration: 0.3 }}
-          className="  w-[60%] flex-1 py-20 px-36 text-3xl font-extrabold capitalize text-transparent"
+          className="  flex-1 px-10 text-center text-3xl font-extrabold capitalize text-transparent md:w-[60%] md:px-36 md:py-20 md:text-start md:text-base"
         >
           <motion.h1 className="font-bold"></motion.h1>
           <br />
-          <h2 className="greet bg-gradient-to-r from-violet-300 to-blue-500 bg-clip-text text-[3.5vw]  lg:leading-[60px] ">
+          <h2 className="greet bg-gradient-to-r  from-violet-300 to-blue-500  bg-clip-text  text-2xl before:opacity-0 after:opacity-0 md:text-[3.5vw] md:before:opacity-100 md:after:opacity-100  lg:leading-[60px] ">
             hello, <br />
             i'am <br />
             frontend web developer
             <br />
-            <span className="mt-8 text-2xl">react/javascipt/typescript</span>
+            <span className="mt-8 md:text-2xl">react/javascipt/typescript</span>
           </h2>
           <motion.button
             whileHover={{ scale: 1.1 }}
@@ -125,7 +142,7 @@ const Home = () => {
           >
             Hire Me
           </motion.button>
-          <div className="social overflow-hidden bg-red-500  md:mt-10">
+          <div className="social mt-5 flex justify-center overflow-hidden bg-red-500 text-center md:mt-10  md:block">
             <ul className=" flex gap-5">
               <li className=" text-violet-300">
                 <a href="">
@@ -156,7 +173,7 @@ const Home = () => {
             opacity: 1,
           }}
           // transition={{ delay: 0.5, duration: 1.2, staggerChildren: 0.5 }}
-          className="left flex-pt-20 w-[50%]"
+          className="left mx-auto w-[70%] md:w-[50%] md:pt-20"
         >
           <Lottie
             className=""
@@ -166,7 +183,7 @@ const Home = () => {
           ></Lottie>
         </motion.div>
       </section>
-      <section className="skills w-screen rounded-xl bg-black/20 p-10 px-32  shadow-md">
+      <section className="skills w-screen rounded-xl bg-black/20 p-10 px-14 shadow-md  md:px-32">
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -175,10 +192,16 @@ const Home = () => {
         >
           My Skills
         </motion.h1>
-        <section className="skills flex [&>*]:flex-1">
+        <section className="skills mt-14 md:flex [&>*]:flex-1">
           <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
+            ref={section2Ref}
+            // initial={{ scale: 0, opacity: 0 }}
+            // animate={{ scale: 1, opacity: 1 }}
+            style={{
+              scale: isInView ? 1 : 0,
+              opacity: isInView ? 1 : 0,
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
+            }}
             transition={{
               duration: 0.5,
               delay: 0.2,
@@ -196,26 +219,31 @@ const Home = () => {
           </motion.div>
 
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
+            // initial={{ scaleX: 0 }}
+            // animate={{ scaleX: 1 }}
+            style={{ scaleX: isInView ? 1 : 0 }}
             transition={{
               duration: 0.3,
               staggerChildren: 0.3,
               delayChildren: 0.3,
             }}
-            className="languages mt-6 flex origin-left  flex-wrap items-start justify-start p-8 lg:gap-8"
+            className="languages flex origin-left flex-wrap items-start  justify-center gap-8  p-8 sm:mt-4  md:mt-6 "
           >
             {codingIcons.map((item, i) => (
               <motion.div
                 key={i + 1}
                 //@ts-ignore
-                variants={codeVariants}
-                whileHover="whileHover"
-                initial="initial"
-                animate="animate"
+                style={{
+                  rotate: isInView ? 0 : 360,
+                  opacity: isInView ? 1 : 0,
+                  transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${
+                    i / 8
+                  }s`,
+                }}
+                whileHover={{ scale: 1.3 }}
                 //@ts-ignore
-                transition="transition"
-                className="react group relative h-min cursor-pointer  rounded-xl bg-black/40 p-3 text-5xl transition-all duration-200 hover:shadow-lg hover:shadow-white/10 "
+                // transition={{ duration: 0.5, stiffness: 100 }}
+                className="react  group relative h-min cursor-pointer  rounded-xl bg-black/40 p-3 text-5xl "
               >
                 <motion.span
                   // initial={{ opacity: 0, width: 0 }}
@@ -230,7 +258,7 @@ const Home = () => {
           </motion.div>
         </section>
         {/*section2*/}
-        <section className="current-study translate-x-10 rounded-xl p-10 lg:bg-black/30">
+        <section className="current-study rounded-xl  p-10 md:translate-x-10 lg:bg-black/30">
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -240,6 +268,7 @@ const Home = () => {
             Current Study
           </motion.h1>
           <motion.div
+            ref={section2Ref2}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{
@@ -253,15 +282,22 @@ const Home = () => {
               <motion.div
                 key={i + 1}
                 //@ts-ignore
-                initial={{ rotate: 360, scale: 0, opacity: 0 }}
-                animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                // initial={{ rotate: 360, scale: 0, opacity: 0 }}
+                // animate={{ rotate: 0, scale: 1, opacity: 1 }}
+                style={{
+                  scale: isInView2 ? 1 : 0,
+                  transition: `all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) ${
+                    i / 4
+                  }s`,
+                }}
+                transition={{ stiffness: 100 }}
                 whileHover={{
                   scale: 1.2,
                   transition: { type: "spring", stiffness: 100 },
                 }}
-                transition={{ type: "spring", stiffness: 100 }}
+                // transition={{ type: "spring", stiffness: 100 }}
                 //@ts-ignore
-                className="react group relative cursor-pointer rounded-xl bg-white p-3 text-5xl text-slate-700 transition-all duration-200 hover:shadow-lg  "
+                className="react group relative cursor-pointer rounded-xl  bg-white/70 p-3 text-5xl text-slate-700 backdrop-blur-md transition-all hover:shadow-lg  "
               >
                 <motion.span
                   // initial={{ opacity: 0, width: 0 }}

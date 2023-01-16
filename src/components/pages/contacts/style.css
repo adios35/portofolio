@@ -1,0 +1,4 @@
+.contact-form input,
+textarea {
+  @apply w-full rounded-lg  border-2 border-white/40 bg-inherit p-2 outline-none focus:outline-none;
+}

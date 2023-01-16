@@ -8,6 +8,7 @@ ul li a {
 ul li span {
   @apply text-lg;
 }
+
 ul li a.active {
   @apply text-blue-500;
 }

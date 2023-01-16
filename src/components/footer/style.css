@@ -1,0 +1,10 @@
+footer .col {
+  @apply space-y-2;
+}
+
+footer .col p {
+  @apply text-gray-400;
+}
+footer .col a {
+  @apply block text-blue-400;
+}

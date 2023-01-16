@@ -8,15 +8,15 @@ import { motion } from "framer-motion";
 import "./style.css";
 const SideBar = () => {
   return (
-    <div className="fixed z-30 flex h-screen max-w-[100px] flex-col justify-between p-8  text-slate-300 dark:bg-darkTheme ">
-      <Link to="/">
+    <div className="fixed bottom-0 z-30  flex w-full items-center justify-between bg-red-500 p-8 text-slate-300 dark:bg-darkTheme md:left-0 md:h-screen  md:max-w-[100px] md:flex-col ">
+      <Link className="" to="/">
         <div className="logo text-center text-4xl ">Atib</div>
       </Link>
-      <ul className="menu space-y-5">
+      <ul className="menu flex items-center gap-8 md:block md:space-y-5">
         <motion.li whileTap={{ scale: 1.2 }} className="group ">
           <NavLink to="/">
-            <span className="hidden  group-hover:block">Home</span>
-            <AiFillHome className=" text-2xl group-hover:hidden" />
+            <span className="hidden group-hover:block">Home</span>
+            <AiFillHome className="text-2xl group-hover:hidden" />
           </NavLink>
         </motion.li>
         <motion.li whileTap={{ scale: 1.2 }} className="group">
