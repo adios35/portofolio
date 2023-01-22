@@ -4,6 +4,7 @@ import "./style.css";
 //@ts-ignore
 import bg from "../../assets/footer.jpg";
 import { useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [isInView, setisInView] = React.useState(false);
@@ -58,9 +59,18 @@ const Footer = () => {
             className="col sm:text-md text-sm"
           >
             <h4 className="text-base md:text-xl">Ikuti Saya</h4>
-            <a href="">LinkedIn</a>
-            <a href="">Twitter</a>
-            <a href="">Instagram</a>
+            <a
+              href="https://www.linkedin.com/in/proxima-midnight-65a974252/"
+              target="_blank"
+            >
+              LinkedIn
+            </a>
+            <a href="https://github.com/adios35" target="_blank">
+              GitHub
+            </a>
+            <a href="https://www.instagram.com/atib_lp/" target="_blank">
+              Instagram
+            </a>
           </div>
           <div
             style={{
@@ -71,9 +81,9 @@ const Footer = () => {
             className="col sm:text-md text-sm"
           >
             <h4 className="text-base md:text-xl">Navigasi</h4>
-            <a href="">Home</a>
-            <a href="">Portfolio</a>
-            <a href="">Tentang Saya</a>
+            <Link to="/">Home</Link>
+            <Link to="project">Portfolio</Link>
+            <Link to="contacts">Contact Me</Link>
           </div>
         </div>
       </div>

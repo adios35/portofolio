@@ -11,6 +11,9 @@ import first from "../../../assets/first-website.png";
 
 const Project = () => {
   // const inView = useInView();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="w-screen">
       <div className="project my-14">
@@ -37,14 +40,14 @@ const Project = () => {
           >
             <h1 className=" my-2 text-center text-xl">E-commerce-firebase</h1>
 
-            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px]">
+            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px] ">
               <img
                 src={ecommerce}
                 alt=""
                 className="h-full w-full  object-cover"
               />
 
-              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-blue-500/90  p-5 pb-8   transition-all  duration-300 group-hover:top-0 group-hover:opacity-100 ">
+              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-blue-500/90 p-5  pb-8 transition-all   duration-300  group-hover:top-0 group-hover:opacity-100 md:overflow-y-hidden ">
                 <a
                   href="https://e-commerce-firebase.netlify.app"
                   className="block h-full"
@@ -102,10 +105,10 @@ const Project = () => {
             <h1 className=" my-2 text-center text-xl">
               TodoApp(crud)-firebase
             </h1>
-            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px]">
+            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px] ">
               <img src={todo} alt="" className="h-full w-full  object-cover" />
 
-              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-green-500/80  p-5 pb-8   transition-all  duration-300 group-hover:top-0 group-hover:opacity-100 ">
+              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-green-500/80 p-5  pb-8 transition-all   duration-300  group-hover:top-0 group-hover:opacity-100 md:overflow-y-hidden ">
                 <a
                   href="https://todofirebase-app.netlify.app"
                   className="block h-full"
@@ -156,10 +159,10 @@ const Project = () => {
             <h1 className=" my-2 text-center text-xl">
               rick & morty(api-call)
             </h1>
-            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px]">
+            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px] ">
               <img src={api} alt="" className="h-full w-full  object-cover" />
 
-              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-red-500/90  p-5 pb-8   transition-all  duration-300 group-hover:top-0 group-hover:opacity-100 ">
+              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-red-500/90 p-5  pb-8 transition-all   duration-300  group-hover:top-0 group-hover:opacity-100 md:overflow-y-hidden ">
                 <a
                   href="https://rick-and-morthy-api-with-react-query.netlify.app"
                   className="block h-full"
@@ -213,10 +216,10 @@ const Project = () => {
               my-first-website(course site)
             </h1>
 
-            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px]">
+            <div className="card-project group relative h-[200px] w-[300px] cursor-pointer overflow-hidden rounded-xl bg-gray-400 text-white shadow-lg transition-all duration-300 md:h-[300px] md:w-[500px] ">
               <img src={first} alt="" className="h-full w-full  object-cover" />
 
-              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-blue-500/90  p-5 pb-8   transition-all  duration-300 group-hover:top-0 group-hover:opacity-100 ">
+              <div className="desc opacity:0 absolute  top-[500px] h-full w-full overflow-y-scroll bg-blue-500/90 p-5  pb-8 transition-all   duration-300  group-hover:top-0 group-hover:opacity-100 md:overflow-y-hidden ">
                 <a
                   href="https://my-first-project-course-website.netlify.app"
                   className="block h-full"

@@ -1,5 +1,5 @@
 import React from "react";
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiFillGithub } from "react-icons/ai";
 import { GoChecklist } from "react-icons/go";
 import { CgProfile } from "react-icons/cg";
 import { MdDarkMode } from "react-icons/md";
@@ -32,15 +32,14 @@ const SideBar = () => {
           </NavLink>
         </motion.li>
       </ul>
-      <motion.div
+      <motion.a
+        href="https://github.com/adios35"
+        target="_blank"
         whileHover={{ scale: 1.2 }}
-        className="toggle-dark group relative cursor-pointer "
+        className="toggle-dark group relative cursor-pointer text-3xl "
       >
-        <span className="badge  absolute -top-5 hidden text-xs font-thin transition-all duration-300 group-hover:inline group-hover:delay-300 ">
-          dark
-        </span>
-        <MdDarkMode className="text-xl hover:text-gray-400" />
-      </motion.div>
+        <AiFillGithub />
+      </motion.a>
     </div>
   );
 };

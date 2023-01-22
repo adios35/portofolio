@@ -1,8 +1,10 @@
 import React, { useRef } from "react";
 import computer from "../../../assets/svgs/computer(1).json";
 import { FaReact } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { DiCss3, DiHtml5 } from "react-icons/di";
 import {
+  SiFigma,
   SiTailwindcss,
   SiRedux,
   SiFirebase,
@@ -22,18 +24,27 @@ import Lottie from "react-lottie-player";
 import "./style.css";
 import coding from "../../../assets/svgs/coding.json";
 const Home = () => {
+  const navigate = useNavigate();
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [isInView, setisInView] = React.useState(false);
   const [isInView2, setisInView2] = React.useState(false);
+  const [isInView0, setisInView0] = React.useState(false);
   const section2Ref = useRef(null);
   const section2Ref2 = useRef(null);
+  const section2Ref0 = useRef(null);
   const inView = useInView(section2Ref);
   const inView2 = useInView(section2Ref2);
+  const inView0 = useInView(section2Ref0);
 
   React.useEffect(() => {
     inView && setisInView(true);
     inView2 && setisInView2(true);
-  }, [inView, inView2]);
-
+    inView0 && setisInView0(true);
+  }, [inView, inView2, inView0]);
+  console.log(inView0);
   const currentStudyIcons = [
     {
       title: "nextJs",
@@ -116,6 +127,10 @@ const Home = () => {
       title: "firebase",
       icon: <SiFirebase />,
     },
+    {
+      title: "figma",
+      icon: <SiFigma />,
+    },
   ];
   return (
     <motion.div className="space-y-10">
@@ -138,6 +153,7 @@ const Home = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 1 }}
+            onClick={() => navigate("/contacts")}
             className="mt-8 rounded-full border-2 bg-gradient-to-r from-violet-300 to-blue-500 bg-clip-text px-3 py-[2px] text-xl  active:scale-100"
           >
             Hire Me
@@ -145,25 +161,28 @@ const Home = () => {
           <div className="social mt-5 flex justify-center overflow-hidden bg-red-500 text-center md:mt-10  md:block">
             <ul className=" flex gap-5">
               <li className=" text-violet-300">
-                <a href="">
+                <a href="https://facebook.com/atib.gmc/" target="_blank">
                   <BsFacebook />
                 </a>
               </li>
               <li className=" text-violet-300/70">
-                <a href="">
+                <a href="https://www.instagram.com/atib_lp/" target="_blank">
                   <BsInstagram />
                 </a>
               </li>
               <li className=" text-violet-400/80">
-                <a href="">
+                <a
+                  href="https://www.linkedin.com/in/proxima-midnight-65a974252/"
+                  target="_blank"
+                >
                   <BsLinkedin />
                 </a>
               </li>
-              <li className=" text-violet-400/90">
+              {/* <li className=" text-violet-400/90">
                 <a href="">
                   <BsTwitter />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </motion.div>
@@ -183,6 +202,37 @@ const Home = () => {
           ></Lottie>
         </motion.div>
       </section>
+      <motion.div
+        ref={section2Ref0}
+        style={{
+          opacity: isInView0 ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.3s",
+        }}
+        className="outout-me md:px-32"
+      >
+        <section className="current-study rounded-xl  p-10 md:translate-x-10 lg:bg-black/30">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, delay: 0.7 }}
+            className="title relative text-center text-3xl font-semibold"
+          >
+            About Me
+          </motion.h1>
+          <motion.div className="languages mt-6 flex origin-left flex-wrap justify-around gap-10 p-8">
+            <motion.p className="leading-8 text-center md:text-start">
+              Saya adalah seorang self-taught software developer yang tinggal di
+              lebak banten. Saya telah belajar sendiri berbagai bahasa dan
+              teknologi pemrograman melalui internet dan komunitas online.
+              hampir setiap hari saya selalu menyempatkan waktu untuk belajar
+              dan bereksperiment untuk mengasah keahlian saya. Meskipun
+              otodidak, saya berdedikasi untuk tetap up-to-date dengan
+              perkembangan terbaru di lapangan, dan selalu mencari cara untuk
+              meningkatkan keterampilan dan pengetahuan saya.
+            </motion.p>
+          </motion.div>
+        </section>
+      </motion.div>
       <section className="skills w-screen rounded-xl bg-black/20 p-10 px-14 shadow-md  md:px-32">
         <motion.h1
           initial={{ opacity: 0 }}
@@ -240,7 +290,6 @@ const Home = () => {
                     i / 8
                   }s`,
                 }}
-                whileHover={{ scale: 1.3 }}
                 //@ts-ignore
                 // transition={{ duration: 0.5, stiffness: 100 }}
                 className="react  group relative h-min cursor-pointer  rounded-xl bg-black/40 p-3 text-5xl "
@@ -252,7 +301,9 @@ const Home = () => {
                 >
                   {item.title}
                 </motion.span>
-                {item.icon}
+                <div className="icon duration-300 hover:scale-125">
+                  {item.icon}
+                </div>
               </motion.div>
             ))}
           </motion.div>
