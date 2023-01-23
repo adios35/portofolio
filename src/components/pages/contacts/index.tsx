@@ -9,13 +9,6 @@ import Lottie from "react-lottie-player";
 // const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const Contacts = () => {
-  // const defaultProps = {
-  //   center: {
-  //     lat: 10.99835602,
-  //     lng: 77.01502627,
-  //   },
-  //   zoom: 11,
-  // };
   const [loading, setLoading] = React.useState("");
   const form = React.useRef(null);
   const sendEmail = async (e) => {

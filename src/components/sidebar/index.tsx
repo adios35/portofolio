@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import "./style.css";
 const SideBar = () => {
   return (
-    <div className="fixed bottom-0 z-30  flex w-full items-center justify-between bg-red-500 p-8 text-slate-300 dark:bg-darkTheme md:left-0 md:h-screen  md:max-w-[100px] md:flex-col ">
+    <div className="fixed bottom-0 z-30  flex w-full items-center justify-between  bg-darkTheme p-8 text-slate-300 md:left-0 md:h-screen  md:max-w-[100px] md:flex-col ">
       <Link className="" to="/">
         <div className="logo text-center text-4xl ">Atib</div>
       </Link>

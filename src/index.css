@@ -4,3 +4,8 @@
 * {
   scroll-behavior: smooth;
 }
+
+p,
+span {
+  @apply text-slate-300;
+}
